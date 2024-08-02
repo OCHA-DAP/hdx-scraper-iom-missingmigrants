@@ -1,0 +1,7 @@
+# Collector specific configuration
+base_url: "https://missingmigrants.iom.int/global-figures"
+fixed_tags:
+  - asylum seekers
+  - migration
+  - refugees
+  - sex and age disaggregated data-sadd
