@@ -115,6 +115,10 @@ def expected_dataset():
                 "name": "refugees",
                 "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",
             },
+            {
+                "name": "sex and age disaggregated data-sadd",
+                "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",
+            },
         ],
         "title": "Missing Migrants Project Data",
     }
@@ -137,7 +141,7 @@ def expected_resources():
 def mock_get_mapped_tags(mocker):
     return mocker.patch(
         "hdx.data.vocabulary.Vocabulary.get_mapped_tags",
-        return_value=(["asylum seekers", "migration", "refugees"], []),
+        return_value=(["asylum seekers", "migration", "refugees", "sex and age disaggregated data-sadd"], []),
     )
 
 
@@ -233,6 +237,7 @@ class TestIOM:
                 filename_list = [
                     "iom-missing-migrants-project-data.csv",
                 ]
+
                 for filename in filename_list:
                     assert_files_same(
                         join("tests", "fixtures", filename),
