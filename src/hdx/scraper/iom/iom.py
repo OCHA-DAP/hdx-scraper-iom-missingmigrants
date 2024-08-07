@@ -116,14 +116,6 @@ class IOM:
             self._DATE_FIELD,
             quickcharts=None
         )
-        # dataset.generate_resource_from_rows(
-        #     self._temp_dir,
-        #     self._FILENAME,
-        #     data_by_year_list,
-        #     resource_data,
-        #     list(data_by_year_list[0].keys()),
-        #     encoding="utf-8",
-        # )
 
         return dataset
 
