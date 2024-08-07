@@ -12,23 +12,31 @@ logger = logging.getLogger(__name__)
 
 
 class IOM:
-    _YEARS = [
-        "2014",
-        "2015",
-        "2016",
-        "2017",
-        "2018",
-        "2019",
-        "2020",
-        "2021",
-        "2022",
-        "2023",
-        "2024",
-    ]
-    _OUTPUT_FORMAT = "json"
     _DATE_FIELD = "reported_date"
-    _LOCATION = "world"
     _FILENAME = "iom-missing-migrants-project-data.csv"
+    _LOCATION = "world"
+    _OUTPUT_FORMAT = "json"
+    _HXLTAGS = {
+        "web_id": "#web+id",
+        "region": "#region+name",
+        "reported_date": "#date+reported",
+        "number_dead": "#affected+killed",
+        "number_missing": "#affected+missing",
+        "total_dead_and_missing": "#affected+killed+missing+total",
+        "number_of_survivors": "#affected+survivors",
+        "number_of_female": "#affected+f",
+        "number_of_male": "#affected+m",
+        "number_of_children": "#affected+children",
+        "cause_death": "#cause+type",
+        "country_of_incident": "#country+event",
+        "location_description": "#loc+description",
+        "unsd_geographic_grouping": "#region+unsd+name",
+        "location_coodinates": "#geo+coord",
+        "migration_route": "#route+description",
+        "information_source": "#meta+source+name",
+        "url": "#meta+url",
+        "source_quality": "#meta+source+quality",
+    }
 
     def __init__(
         self, configuration: Configuration, retriever: Retrieve, temp_dir: str
@@ -52,8 +60,13 @@ class IOM:
         """
         logger.info("Scraping data")
         data_url = self._configuration["base_url"]
+
+        start_year = 2014
+        next_year = datetime.now().year + 1
+        years = [year for year in range(start_year, next_year)]
+
         data_by_year_list = []
-        for year in self._YEARS:
+        for year in years:
             data_url_year = f"{data_url}/{year}/{self._OUTPUT_FORMAT}"
             data = self._retriever.download_json(data_url_year)
             if not data:
@@ -93,14 +106,24 @@ class IOM:
             "description": "CSV file containing numbers of migrants who have died or gone missing in the process of migration towards an international destination since 2014.",
         }
 
-        dataset.generate_resource_from_rows(
+        dataset.generate_resource_from_iterable(
+            list(data_by_year_list[0].keys()),
+            data_by_year_list,
+            self._HXLTAGS,
             self._temp_dir,
             self._FILENAME,
-            data_by_year_list,
             resource_data,
-            list(data_by_year_list[0].keys()),
-            encoding="utf-8",
+            self._DATE_FIELD,
+            quickcharts=None
         )
+        # dataset.generate_resource_from_rows(
+        #     self._temp_dir,
+        #     self._FILENAME,
+        #     data_by_year_list,
+        #     resource_data,
+        #     list(data_by_year_list[0].keys()),
+        #     encoding="utf-8",
+        # )
 
         return dataset
 
