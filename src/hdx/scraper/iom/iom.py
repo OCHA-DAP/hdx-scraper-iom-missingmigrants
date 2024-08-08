@@ -114,7 +114,7 @@ class IOM:
             self._FILENAME,
             resource_data,
             self._DATE_FIELD,
-            quickcharts=None
+            quickcharts=None,
         )
 
         return dataset

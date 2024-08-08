@@ -2,7 +2,7 @@
 #    uv pip compile pyproject.toml --resolver=backtracking -o requirements.txt
 annotated-types==0.7.0
     # via pydantic
-attrs==23.2.0
+attrs==24.2.0
     # via
     #   frictionless
     #   jsonlines
@@ -10,7 +10,7 @@ attrs==23.2.0
     #   referencing
 certifi==2024.7.4
     # via requests
-cffi==1.16.0
+cffi==1.17.0
     # via cryptography
 chardet==5.2.0
     # via frictionless
@@ -87,7 +87,7 @@ markupsafe==2.1.5
     # via jinja2
 mdurl==0.1.2
     # via markdown-it-py
-more-itertools==10.3.0
+more-itertools==10.4.0
     # via inflect
 ndg-httpsclient==0.5.1
     # via hdx-python-api
@@ -132,7 +132,7 @@ python-slugify==8.0.4
     # via
     #   ckanapi
     #   frictionless
-pyyaml==6.0.1
+pyyaml==6.0.2
     # via
     #   frictionless
     #   tableschema-to-template
@@ -157,7 +157,7 @@ rfc3986==2.0.0
     # via frictionless
 rich==13.7.1
     # via typer
-rpds-py==0.19.1
+rpds-py==0.20.0
     # via
     #   jsonschema
     #   referencing
@@ -213,7 +213,7 @@ urllib3==2.2.2
     #   requests
 validators==0.33.0
     # via frictionless
-wheel==0.43.0
+wheel==0.44.0
     # via libhxl
 xlrd==2.0.1
     # via hdx-python-utilities
