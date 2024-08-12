@@ -76,7 +76,7 @@ class IOM:
             data_by_year_list.extend(data)
         return data_by_year_list
 
-    def generate_dataset(self, data_by_year_list: list) -> Optional[Dataset]:
+    def generate_dataset(self, data_by_year_list: List) -> Optional[Dataset]:
         """
         Generate the dataset
         """
