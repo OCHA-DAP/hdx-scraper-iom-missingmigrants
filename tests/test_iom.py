@@ -159,7 +159,7 @@ class TestIOM:
         UserAgent.set_global("test")
         Configuration._create(
             hdx_read_only=True,
-            hdx_site="dev",
+            hdx_site="prod",
             project_config_yaml=join(config_dir, "project_configuration.yaml"),
         )
         return Configuration.read()
