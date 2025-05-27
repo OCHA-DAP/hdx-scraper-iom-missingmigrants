@@ -2,7 +2,7 @@
 [![Build Status](https://github.com/OCHA-DAP/hdx-scraper-iom/actions/workflows/run-python-tests.yaml/badge.svg)](https://github.com/OCHA-DAP/hdx-scraper-iom/actions/workflows/run-python-tests.yaml)
 [![Coverage Status](https://coveralls.io/repos/github/OCHA-DAP/hdx-scraper-iom/badge.svg?branch=main&ts=1)](https://coveralls.io/github/OCHA-DAP/hdx-scraper-iom?branch=main)
 
-The [Missing Migrants Project](https://missingmigrants.iom.int/) dataset represents incidents in which a person lost their life during migration to an international destination. The figures shown throughout are best understood as a minimum estimate of the true number of people’s lives lost during migration worldwide.
+The [Missing Migrants Project](https://missingmigrants.iom.int/ ) dataset represents incidents in which a person lost their life during migration to an international destination. The script queries the API by year, uploads to HDX, and runs every Sunday night.
 
 ## Development
 
