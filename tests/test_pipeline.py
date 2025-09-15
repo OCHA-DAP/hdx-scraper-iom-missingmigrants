@@ -123,6 +123,8 @@ class TestPipeline:
                         "description": "CSV file containing numbers of migrants who have died or gone missing in the process of migration towards an international destination since 2014.",
                         "format": "csv",
                         "name": "iom-missing-migrants-project-data.csv",
+                        "resource_type": "file.upload",
+                        "url_type": "upload",
                     }
                 ]
                 for resource in resources:

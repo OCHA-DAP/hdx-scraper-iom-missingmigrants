@@ -46,7 +46,7 @@ def configuration(config_dir):
                 "asylum seekers",
                 "migration",
                 "refugees",
-                "sex and age disaggregated data-sadd",
+                "gender and age disaggregated data-gadd",
                 "hxl",
             )
         ],
