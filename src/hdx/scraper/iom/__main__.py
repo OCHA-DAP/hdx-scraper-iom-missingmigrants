@@ -6,27 +6,26 @@ script then creates in HDX.
 """
 
 import logging
-from os.path import dirname, expanduser, join
-
-from src.hdx.scraper.iom.iom import (
-    IOM,
-)
+from os.path import expanduser, join
 
 from hdx.api.configuration import Configuration
+from hdx.data.user import User
 from hdx.facades.infer_arguments import facade
 from hdx.utilities.downloader import Download
-from hdx.utilities.easy_logging import setup_logging
 from hdx.utilities.path import (
+    script_dir_plus_file,
     wheretostart_tempdir_batch,
 )
 from hdx.utilities.retriever import Retrieve
 
-setup_logging()
+from hdx.scraper.iom._version import __version__
+from hdx.scraper.iom.pipeline import Pipeline
+
 logger = logging.getLogger(__name__)
 
-_USER_AGENT_LOOKUP = "hdx-scraper-iom"
+_LOOKUP = "hdx-scraper-iom"
 _SAVED_DATA_DIR = "saved_data"  # Keep in repo to avoid deletion in /tmp
-_UPDATED_BY_SCRIPT = "HDX Scraper: IOM"
+_UPDATED_BY_SCRIPT = "HDX Scraper: Iom"
 
 
 def main(
@@ -36,37 +35,36 @@ def main(
     """Generate datasets and create them in HDX
 
     Args:
-        save (bool): Save downloaded data. Defaults to True.
+        save (bool): Save downloaded data. Defaults to False.
         use_saved (bool): Use saved data. Defaults to False.
 
     Returns:
         None
     """
-    with wheretostart_tempdir_batch(folder=_USER_AGENT_LOOKUP) as info:
-        temp_dir = info["folder"]
+    logger.info(f"##### {_LOOKUP} version {__version__} ####")
+    configuration = Configuration.read()
+    User.check_current_user_write_access("")
+
+    with wheretostart_tempdir_batch(folder=_LOOKUP) as info:
+        tempdir = info["folder"]
         with Download() as downloader:
             retriever = Retrieve(
                 downloader=downloader,
-                fallback_dir=temp_dir,
+                fallback_dir=tempdir,
                 saved_dir=_SAVED_DATA_DIR,
-                temp_dir=temp_dir,
+                temp_dir=tempdir,
                 save=save,
                 use_saved=use_saved,
             )
-            configuration = Configuration.read()
-            iom = IOM(
-                configuration=configuration,
-                retriever=retriever,
-                temp_dir=temp_dir,
-            )
-            data_by_year_list = iom.scrape_data()
-
+            pipeline = Pipeline(configuration, retriever, tempdir)
+            #
+            # Steps to generate dataset
+            #
+            data_by_year_list = pipeline.scrape_data()
             logger.info("Creating dataset")
-            dataset = iom.generate_dataset(data_by_year_list=data_by_year_list)
+            dataset = pipeline.generate_dataset(data_by_year_list=data_by_year_list)
             dataset.update_from_yaml(
-                path=join(
-                    dirname(__file__), "config", "hdx_dataset_static.yaml"
-                )
+                script_dir_plus_file(join("config", "hdx_dataset_static.yaml"), main)
             )
             logger.info("Uploading to HDX")
             dataset.create_in_hdx(
@@ -81,9 +79,10 @@ def main(
 if __name__ == "__main__":
     facade(
         main,
+        # hdx_site="demo",
         user_agent_config_yaml=join(expanduser("~"), ".useragents.yaml"),
-        user_agent_lookup=_USER_AGENT_LOOKUP,
-        project_config_yaml=join(
-            dirname(__file__), "config", "project_configuration.yaml"
+        user_agent_lookup=_LOOKUP,
+        project_config_yaml=script_dir_plus_file(
+            join("config", "project_configuration.yaml"), main
         ),
     )

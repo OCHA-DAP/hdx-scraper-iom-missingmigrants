@@ -1,13 +1,12 @@
-license_id: "cc-by-igo"
+license_id: cc-by-igo
 methodology: "http://missingmigrants.iom.int/methodology"
 caveats: "Total figures include 331 deaths that are not included in the monthly breakdown because the month in which the deaths occured is not specified; 88 of these occured on the U.S. Mexico border and 243 in the Bay of Bengal (Southeast Asia). In the above chart, totals by region are correct, but monthly totals are incomplete for some months. Note: Europe refers to the region generally, and not the European Union."
-dataset_source: "IOM"
-package_creator: "HDX Data Systems Team"
+dataset_source: IOM
+package_creator: HDX Data Systems Team
 private: False
-maintainer: "fae4918b-a603-46a2-8a21-cc45b2882153" # Julia Black
-owner_org: "50dcc50c-84ee-4350-98fe-a9493b52742f" # IOM Missing Migrants Project
-subnational: False
-data_update_frequency: 7 # Weekly
+maintainer: fae4918b-a603-46a2-8a21-cc45b2882153 # Julia Black
+owner_org: 50dcc50c-84ee-4350-98fe-a9493b52742f # IOM Missing Migrants Project
+data_update_frequency: 7
 notes: |
   Missing Migrants Project draws on a range of sources to track deaths of migrants along migratory routes across the globe. Data from this project are published in the report “Fatal Journeys: Tracking Lives Lost during Migration,” which provides the most comprehensive global tally of migrant fatalities since 2014.
 
