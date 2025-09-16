@@ -9,7 +9,7 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "hdx-scraper-iom"
+name = "hdx-scraper-iom_missingmigrants"
 requires-python = ">=3.13"
 dependencies = [
   "hdx-python-api",
@@ -27,4 +27,4 @@ test = [
 dev = ["pre-commit"]
 
 [project.scripts]
-run = "hdx.scraper.iom.__main__:main"
+run = "hdx.scraper.iom_missingmigrants.__main__:main"
