@@ -22,9 +22,9 @@ from hdx.scraper.iom.pipeline import Pipeline
 
 logger = logging.getLogger(__name__)
 
-_LOOKUP = "hdx-scraper-iom"
+_LOOKUP = "hdx-scraper-iom-missingmigrants"
 _SAVED_DATA_DIR = "saved_data"  # Keep in repo to avoid deletion in /tmp
-_UPDATED_BY_SCRIPT = "HDX Scraper: Iom"
+_UPDATED_BY_SCRIPT = "HDX Scraper: IOM Missing Migrants"
 
 
 def main(
