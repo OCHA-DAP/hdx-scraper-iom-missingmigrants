@@ -4,7 +4,7 @@
 packages = ["src/hdx"]
 
 [build.hooks.vcs]
-version-file = "src/hdx/scraper/iom/_version.py"
+version-file = "src/hdx/scraper/iom_missingmigrants/_version.py"
 
 [metadata]
 allow-direct-references = true

@@ -1,6 +1,6 @@
 # Collector for Iom Datasets
-[![Build Status](https://github.com/OCHA-DAP/hdx-scraper-iom/actions/workflows/run-python-tests.yaml/badge.svg)](https://github.com/OCHA-DAP/hdx-scraper-iom/actions/workflows/run-python-tests.yaml)
-[![Coverage Status](https://coveralls.io/repos/github/OCHA-DAP/hdx-scraper-iom/badge.svg?branch=main&ts=1)](https://coveralls.io/github/OCHA-DAP/hdx-scraper-iom?branch=main)
+[![Build Status](https://github.com/OCHA-DAP/hdx-scraper-iom_missingmigrants/actions/workflows/run-python-tests.yaml/badge.svg)](https://github.com/OCHA-DAP/hdx-scraper-iom/actions/workflows/run-python-tests.yaml)
+[![Coverage Status](https://coveralls.io/repos/github/OCHA-DAP/hdx-scraper-iom/badge.svg?branch=main&ts=1)](https://coveralls.io/github/OCHA-DAP/hdx-scraper-iom_missingmigrants?branch=main)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 The [Missing Migrants Project](https://missingmigrants.iom.int/) dataset represents incidents in which a person lost their life during migration to an international destination. The script queries the API by year, uploads to HDX, and runs every Sunday night.
@@ -35,7 +35,7 @@ For the script to run, you will need to have a file called
  You will also need to supply the universal .useragents.yaml file in your home
  directory as specified in the parameter *user_agent_config_yaml* passed to
  facade in run.py. The collector reads the key
- **hdx-scraper-iom** as specified in the parameter
+ **hdx-scraper-iom_missingmigrants** as specified in the parameter
  *user_agent_lookup*.
 
  Alternatively, you can set up environment variables: `USER_AGENT`, `HDX_KEY`,
@@ -45,7 +45,7 @@ To install and run, execute:
 
 ```shell
     pip install .
-    python -m hdx.scraper.iom
+    python -m hdx.scraper.iom_missingmigrants
 ```
 
 ### Pre-commit

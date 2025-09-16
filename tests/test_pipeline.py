@@ -5,7 +5,7 @@ from hdx.utilities.downloader import Download
 from hdx.utilities.path import temp_dir
 from hdx.utilities.retriever import Retrieve
 
-from hdx.scraper.iom.pipeline import Pipeline
+from hdx.scraper.iom_missingmigrants.pipeline import Pipeline
 
 
 class TestPipeline:

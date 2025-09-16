@@ -17,8 +17,8 @@ from hdx.utilities.path import (
 )
 from hdx.utilities.retriever import Retrieve
 
-from hdx.scraper.iom._version import __version__
-from hdx.scraper.iom.pipeline import Pipeline
+from hdx.scraper.iom_missingmigrants._version import __version__
+from hdx.scraper.iom_missingmigrants.pipeline import Pipeline
 
 logger = logging.getLogger(__name__)
 
