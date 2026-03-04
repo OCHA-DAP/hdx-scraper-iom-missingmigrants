@@ -35,7 +35,7 @@ class TestPipeline:
                 assert dataset == {
                     "caveats": "Total figures include 331 deaths that are not included in the monthly breakdown because the month in which the deaths occured is not specified; 88 of these occured on the U.S. Mexico border and 243 in the Bay of Bengal (Southeast Asia). In the above chart, totals by region are correct, but monthly totals are incomplete for some months. Note: Europe refers to the region generally, and not the European Union.",
                     "data_update_frequency": 7,
-                    "dataset_date": "[2014-01-02T00:00:00 TO 2025-09-08T23:59:59]",
+                    "dataset_date": "[2014-01-02T00:00:00 TO 2026-02-28T23:59:59]",
                     "dataset_source": "IOM",
                     "groups": [{"name": "world"}],
                     "license_id": "cc-by-igo",
@@ -103,10 +103,6 @@ class TestPipeline:
                         },
                         {
                             "name": "refugees",
-                            "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",
-                        },
-                        {
-                            "name": "hxl",
                             "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",
                         },
                         {

@@ -47,7 +47,6 @@ def configuration(config_dir):
                 "migration",
                 "refugees",
                 "gender and age disaggregated data-gadd",
-                "hxl",
             )
         ],
         "id": "b891512e-9516-4bf5-962a-7a289772a2a1",

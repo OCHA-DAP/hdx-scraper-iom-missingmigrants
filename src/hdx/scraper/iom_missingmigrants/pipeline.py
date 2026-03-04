@@ -84,15 +84,13 @@ class Pipeline:
             "description": "CSV file containing numbers of migrants who have died or gone missing in the process of migration towards an international destination since 2014.",
         }
 
-        dataset.generate_resource_from_iterable(
-            list(data_by_year_list[0].keys()),
-            data_by_year_list,
-            {},
+        dataset.generate_resource(
             self._tempdir,
             self._FILENAME,
+            data_by_year_list,
             resource_data,
-            self._DATE_FIELD,
-            quickcharts=None,
+            list(data_by_year_list[0].keys()),
+            datecol=self._DATE_FIELD,
         )
 
         return dataset
