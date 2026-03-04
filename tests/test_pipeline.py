@@ -106,10 +106,6 @@ class TestPipeline:
                             "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",
                         },
                         {
-                            "name": "hxl",
-                            "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",
-                        },
-                        {
                             "name": "gender and age disaggregated data-gadd",
                             "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1",
                         },
