@@ -23,7 +23,7 @@ class Pipeline:
         self._LOCATION = "world"
         self._OUTPUT_FORMAT = "json"
 
-    def scrape_data(self) -> list:
+    def scrape_data(self, end_year: Optional[int] = None) -> list:
         """
         Query the API by year, and store the results in a list.
 
@@ -39,7 +39,7 @@ class Pipeline:
         data_url = self._configuration["base_url"]
 
         start_year = 2014
-        next_year = datetime.now().year + 1
+        next_year = end_year if end_year is not None else datetime.now().year + 1
         years = [year for year in range(start_year, next_year)]
 
         data_by_year_list = []

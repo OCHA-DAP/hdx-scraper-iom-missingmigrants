@@ -26,7 +26,7 @@ class TestPipeline:
                 )
                 pipeline = Pipeline(configuration, retriever, tempdir)
 
-                data_by_year_list = pipeline.scrape_data()
+                data_by_year_list = pipeline.scrape_data(end_year=2027)
                 dataset = pipeline.generate_dataset(data_by_year_list=data_by_year_list)
                 dataset.update_from_yaml(
                     path=join(config_dir, "hdx_dataset_static.yaml")
